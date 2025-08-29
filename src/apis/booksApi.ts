@@ -7,6 +7,25 @@ export interface BookSummary {
   easterEgg: string;
 }
 
+export interface BookHistoryItem {
+  id: string;
+  filename: string;
+  date: string;
+  uploadedAt?: string;
+  summary: {
+    characters: string[];
+    synopsis: string;
+    easterEgg: string;
+  };
+}
+
+export interface BookHistoryResponse {
+  books: BookHistoryItem[];
+  total: number;
+  limit: number;
+  offset: number;
+}
+
 export const booksApi = {  uploadBook: async (file: File): Promise<BookSummary> => {
     const formData = new FormData();
     formData.append('file', file);
@@ -20,8 +39,7 @@ export const booksApi = {  uploadBook: async (file: File): Promise<BookSummary> 
     
     return response.data;
   },
-  
-  getBookHistory: async (): Promise<any[]> => {
+    getBookHistory: async (): Promise<BookHistoryResponse | BookHistoryItem[]> => {
     const response = await api.get('/books/history');
     return response.data;
   },

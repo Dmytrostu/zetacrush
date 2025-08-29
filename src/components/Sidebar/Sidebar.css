@@ -187,3 +187,26 @@
     width: 80vw;
   }
 }
+
+.loading-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10a37f;
+  margin-left: 10px;
+  animation: pulse 1.5s infinite;
+}
+
+.error-message {
+  color: #d9534f;
+  padding: 10px;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}

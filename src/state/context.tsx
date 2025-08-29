@@ -37,7 +37,8 @@ const AppContext = createContext<AppState | undefined>(undefined);
 
 export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [uploadHistory, setUploadHistory] = useState<UploadHistoryItem[]>(mockSessions);
+  // Initialize with empty array instead of mock data to load from API
+  const [uploadHistory, setUploadHistory] = useState<UploadHistoryItem[]>([]);
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(true); // Set to true by default
   const [activeSession, setActiveSession] = useState<string | null>(null);
   const [isNewSession, setIsNewSession] = useState<boolean>(true);

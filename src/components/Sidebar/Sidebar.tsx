@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAppContext } from '../../state/context';
+import { booksApi, BookHistoryItem, BookHistoryResponse } from '../../apis/booksApi';
 import './Sidebar.css';
 
 const Sidebar: React.FC = () => {
@@ -10,8 +11,12 @@ const Sidebar: React.FC = () => {
     uploadHistory, 
     activeSession, 
     setActiveSession,
-    setIsNewSession
+    setIsNewSession,
+    setUploadHistory
   } = useAppContext();
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleNewBook = () => {
     setActiveSession(null);
@@ -22,6 +27,55 @@ const Sidebar: React.FC = () => {
     setActiveSession(sessionId);
     setIsNewSession(false);
   };
+
+  // Load book history from API when user is authenticated
+  useEffect(() => {
+    const fetchBookHistory = async () => {
+      if (!user) return;
+        try {
+        setLoading(true);
+        setError(null);
+        const response = await booksApi.getBookHistory();
+        
+        // Handle different API response formats
+        let booksData: BookHistoryItem[] = [];
+        
+        // Use explicit type check for BookHistoryResponse
+        if (!Array.isArray(response) && typeof response === 'object' && response !== null && 'books' in response) {
+          // API returned { books: [...] } format
+          booksData = (response as BookHistoryResponse).books;
+        } else if (Array.isArray(response)) {
+          // API returned array directly
+          booksData = response;
+        }
+          if (booksData.length > 0) {
+          // Transform the API response to match our UploadHistoryItem format if needed
+          const formattedHistory = booksData.map(book => ({
+            id: book.id,
+            filename: book.filename,
+            date: book.date || book.uploadedAt || new Date().toISOString(), // Ensure date is always a string
+            summary: {
+              characters: book.summary?.characters || [],
+              synopsis: book.summary?.synopsis || '',
+              easterEgg: book.summary?.easterEgg || ''
+            }
+          }));
+          
+          setUploadHistory(formattedHistory);
+        } else {
+          // If there's no history or an error occurred, set empty array
+          setUploadHistory([]);
+        }
+      } catch (err) {
+        console.error('Error fetching book history:', err);
+        setError('Failed to load book history');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBookHistory();
+  }, [user, setUploadHistory]);
 
   // Add keyboard navigation
   useEffect(() => {
@@ -101,7 +155,9 @@ const Sidebar: React.FC = () => {
                   </svg>
                 </div>
                 <div className="session-title">{item.filename}</div>
-                <div className="session-date">{new Date(item.date).toLocaleDateString()}</div>
+                <div className="session-date">
+                  {item.date ? new Date(item.date).toLocaleDateString() : 'Unknown date'}
+                </div>
               </li>
             ))}
           </ul>

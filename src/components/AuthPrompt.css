@@ -1,0 +1,65 @@
+.auth-prompt {
+  background-color: rgba(247, 247, 248, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+}
+
+.auth-prompt-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.auth-prompt-icon {
+  color: #10a37f;
+  margin-bottom: 1rem;
+  width: 32px;
+  height: 32px;
+}
+
+.auth-prompt-message {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.auth-prompt-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.auth-prompt-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.auth-prompt-primary {
+  background-color: #10a37f;
+  color: white;
+  border: none;
+}
+
+.auth-prompt-primary:hover {
+  background-color: #0d8c6d;
+}
+
+.auth-prompt-secondary {
+  background-color: white;
+  color: #10a37f;
+  border: 1px solid #10a37f;
+}
+
+.auth-prompt-secondary:hover {
+  background-color: rgba(16, 163, 127, 0.1);
+}

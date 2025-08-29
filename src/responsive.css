@@ -1,0 +1,49 @@
+/* Responsive adjustments for different content elements */
+.sidebar.open ~ .main-container .message-content {
+  max-width: 650px;
+}
+
+.sidebar.open ~ .main-container .book-upload-gpt {
+  max-width: 650px;
+}
+
+@media screen and (max-width: 1200px) {
+  .message-content {
+    max-width: 650px;
+  }
+  
+  .book-upload-gpt {
+    max-width: 650px;
+  }
+  
+  .sidebar.open ~ .main-container .message-content {
+    max-width: 550px;
+  }
+  
+  .sidebar.open ~ .main-container .book-upload-gpt {
+    max-width: 550px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .message-content {
+    max-width: 550px;
+  }
+  
+  .book-upload-gpt {
+    max-width: 550px;
+  }
+  
+  .sidebar.open ~ .main-container .message-content {
+    max-width: 450px;
+  }
+  
+  .sidebar.open ~ .main-container .book-upload-gpt {
+    max-width: 450px;
+  }
+}
+
+/* Ensure the chat thread stretches properly */
+.chat-thread {
+  width: 100%;
+}

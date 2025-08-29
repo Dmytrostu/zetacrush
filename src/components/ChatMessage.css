@@ -1,0 +1,82 @@
+.chat-message {
+  display: flex;
+  padding: 1.5rem;
+  animation: fadeIn 0.3s ease;
+  font-size: 16px;
+}
+
+.user-message {
+  background: #f7f7f8;
+}
+
+.system-message {
+  background: white;
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 2px;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  background: #10a37f;
+  color: white;
+}
+
+.message-content {
+  flex: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  color: #353740;
+  line-height: 1.75;
+  transition: max-width 0.3s ease;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.message-content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #202123;
+}
+
+.message-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #202123;
+}
+
+.message-content p, .message-content li {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.message-content p.synopsis {
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.message-content ul {
+  margin-bottom: 16px;
+}
+
+.message-content .session-date {
+  color: #6e6e80;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

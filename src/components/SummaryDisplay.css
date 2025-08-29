@@ -1,0 +1,79 @@
+/* Book summary display styling */
+.summary-section {
+  margin-bottom: 32px;
+}
+
+.summary-header {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #202123;
+}
+
+.summary-section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #202123;
+  margin-top: 28px;
+}
+
+.summary-characters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.character-tag {
+  background-color: #f7f7f8;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  color: #353740;
+}
+
+.synopsis-container {
+  background-color: #f9f9fa;
+  padding: 16px;
+  border-radius: 8px;
+  max-height: 500px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.synopsis-text {
+  line-height: 1.7;
+  color: #333;
+}
+
+.easter-egg-container {
+  background-color: #f0f4ff;
+  border-left: 4px solid #7c93e8;
+  padding: 12px 16px;
+  margin-top: 24px;
+}
+
+.easter-egg-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #4a5482;
+}
+
+.easter-egg-text {
+  font-style: italic;
+  color: #4a5482;
+}
+
+.session-metadata {
+  margin-bottom: 24px;
+  color: #6e6e80;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.session-metadata svg {
+  margin-right: 8px;
+}

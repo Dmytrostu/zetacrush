@@ -1,0 +1,37 @@
+main {
+  margin-top: 5rem;
+}
+
+.container {
+  margin-top: 100px;
+  flex: 1;
+  margin-left: 260px;
+  padding: 2rem;
+  background: #444654;
+  color: #fff;
+  transition: margin-left 0.3s ease;
+}
+
+.loader {
+  text-align: center;
+  font-size: 2rem;
+}
+
+/* App layout for sidebar + main content, ChatGPT style */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #343541;
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin-left: 80vw;
+    padding: 1rem;
+  }
+}
+
+/* When sidebar is closed, main content should fill */
+.sidebar:not(.open) ~ .container {
+  margin-left: 0;
+}

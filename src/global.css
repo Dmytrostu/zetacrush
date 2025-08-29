@@ -1,0 +1,4 @@
+/* Global box-sizing for better layout calculations */
+* {
+  box-sizing: border-box;
+}

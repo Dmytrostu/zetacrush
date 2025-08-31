@@ -29,7 +29,7 @@ const SummaryDisplay: React.FC<SummaryDisplayProps> = ({ session }) => {
         
         <h3 className="summary-section-title">Synopsis</h3>
         <div className="synopsis-container">
-          <p className="synopsis-text">{session.summary.synopsis}</p>
+          <pre className="synopsis-text">{session.summary.synopsis}</pre>
         </div>
         
         <div className="easter-egg-container">
